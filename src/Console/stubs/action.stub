@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ namespace }};
+
+use Litepie\Actions\BaseAction;
+
+class {{ class }} extends BaseAction
+{
+    protected bool $shouldCache = {{ cacheable }};
+    protected bool $async = {{ async }};
+
+    protected function handle(): mixed
+    {
+        // Implement your action logic here
+        return [
+            'message' => 'Action executed successfully',
+            'data' => $this->data,
+        ];
+    }
+}

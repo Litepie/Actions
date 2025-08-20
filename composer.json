@@ -1,0 +1,45 @@
+{
+    "name": "litepie/actions",
+    "description": "A comprehensive Laravel Actions package for implementing the Action pattern with validation, events, and caching",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Litepie",
+            "email": "hello@litepie.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9.0|^10.0|^11.0",
+        "illuminate/validation": "^9.0|^10.0|^11.0",
+        "illuminate/cache": "^9.0|^10.0|^11.0",
+        "illuminate/events": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "orchestra/testbench": "^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Litepie\\Actions\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Litepie\\Actions\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Litepie\\Actions\\ActionsServiceProvider"
+            ],
+            "aliases": {
+                "ActionManager": "Litepie\\Actions\\Facades\\ActionManager"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

@@ -1,0 +1,37 @@
+<?php
+
+namespace {{ namespace }};
+
+use Litepie\Actions\BaseAction;
+
+class {{ class }} extends BaseAction
+{
+    protected bool $shouldCache = {{ cacheable }};
+    protected bool $async = {{ async }};
+
+    protected function rules(): array
+    {
+        return [
+            // Add your validation rules here
+            // 'email' => 'required|email',
+            // 'name' => 'required|string|max:255',
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            // Add custom validation messages here
+        ];
+    }
+
+    protected function handle(): mixed
+    {
+        // Implement your action logic here
+        // Validated data is available in $this->data
+        return [
+            'message' => 'Action executed successfully',
+            'data' => $this->data,
+        ];
+    }
+}
