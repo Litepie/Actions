@@ -206,11 +206,6 @@ abstract class BaseAction implements ActionContract, ShouldQueue
         });
     }
 
-    public static function execute(?\Illuminate\Database\Eloquent\Model $model = null, array $data = [], ?User $user = null): ActionResult
-    {
-        return (new static($model, $data, $user))->run();
-    }
-
     public static function runLater(\DateTimeInterface|\DateInterval|int $delay): \Illuminate\Foundation\Bus\PendingDispatch
     {
         return static::dispatch()->delay($delay);
