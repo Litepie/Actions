@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('action_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('log_name')->index();
+            $table->string('log_name');
             $table->string('action');
             $table->text('description')->nullable();
             $table->morphs('subject');
@@ -17,6 +17,14 @@ return new class extends Migration {
             $table->json('properties')->nullable();
             $table->uuid('batch_uuid')->nullable();
             $table->timestamps();
+
+            // Indexes with descriptive names
+            $table->index('log_name', 'action_logs_log_name_idx');
+            $table->index('action', 'action_logs_action_idx');
+            $table->index('batch_uuid', 'action_logs_batch_uuid_idx');
+            $table->index('created_at', 'action_logs_created_at_idx');
+            $table->index(['subject_type', 'subject_id'], 'action_logs_subject_idx');
+            $table->index(['causer_type', 'causer_id'], 'action_logs_causer_idx');
         });
     }
 
